@@ -1,0 +1,16 @@
+/**
+  * multi lines overflow
+  * @param {Number} $lineCount - count to display
+  */
+@mixin multiline-ellipsis($lineCount){
+  @media all and (-webkit-transform-3d){
+	&{
+	  white-space:normal;
+	  -webkit-line-clamp:$lineCount;
+	  display:-webkit-box;
+	  overflow: hidden;
+	  text-overflow:ellipsis;
+	  -webkit-box-orient: vertical;
+	}
+  }
+}

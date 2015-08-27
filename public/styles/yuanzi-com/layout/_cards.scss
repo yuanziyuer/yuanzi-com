@@ -1,0 +1,15 @@
+@import "../mixins/mixins";
+
+#cards.container {
+  padding: 5% 10%;
+  .thumbnail {
+	max-width: 310px;
+	height: 310px + 100px;
+	.caption {
+	  margin-bottom: auto;
+	  .card-description {
+		@include multiline-ellipsis(4);
+	  }
+	}
+  }
+}
