@@ -1,3 +1,19 @@
-#header {
-  
+.com-header {
+  width: 100%;
+  margin-bottom: $com-base-block-size;
+  nav {
+	height: $com-base-block-size;
+
+	background-color: $com-nav-color;
+	box-shadow: $com-nav-shadow;
+	.com-nav-container {
+	  /*padding-left: 13.8 * $com-base-width;
+	  padding-right: 13.8 * $com-base-width;*/
+	  .com-nav-brand {
+		margin-top: 0.2 * $com-header-height;
+		margin-bottom: 0.2 * $com-header-height;
+		max-height: 0.6 * $com-header-height;
+	  }
+	}
+  }
 }

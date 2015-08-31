@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "script": "keystone.js",
+      "name": "Com",
+      "exec_interpreter": "node",
+      "vizion": false,
+      "exec_mode": "cluster"
+    }
+  ]
+}
+

@@ -1,0 +1,13 @@
+./node_modules/**/*
+./coverage/**/*
+./views/**/*
+./**/*.min.js
+./public/**/*
+./**/*.xml
+./**/*.md
+./**/*.json
+./**/*.csv
+./**/*.rdb
+./**/*.log
+./test
+./*.yml

@@ -1,15 +1,42 @@
-@import "../mixins/mixins";
+.com-cards {
+  @include media('<=desktop'){
+	padding-left: 13.8 * $com-base-width;
+	padding-right: 13.8 * $com-base-width;
+  }
+  .com-hottext {
+	margin-top: 2em;
+  }
+  .cards {
+	padding-top: 4em;
+	.thumbnail {
+	  max-width: 310px;
+	  .caption {
+		margin-bottom: auto;
+		.com-card-title {
 
-#cards.container {
-  padding: 5% 10%;
-  .thumbnail {
-	max-width: 310px;
-	height: 310px + 100px;
-	.caption {
-	  margin-bottom: auto;
-	  .card-description {
-		@include multiline-ellipsis(4);
+		  color: rgba(69, 69, 69, 1);
+		  line-height:1.14em;
+		  font-size: 1.14em;
+		}
+		.card-description {
+		  color: rgba(130,130,130,1);
+		  line-height:2em;
+		  height:6em;
+		  @include multiline-ellipsis(4);
+
+		}
+		.com-user-avatar {
+		  width: 2em;
+		}
+		.com-user-nickname {
+		  padding-left: 10px;
+		}
 	  }
 	}
+  }
+  
+  .com-card-more {
+	margin-bottom: 4em;
+
   }
 }

@@ -1,8 +1,16 @@
-#user {
-  img {
-	width: 100%;
+.com-user {
+  .com-user-cover {
+	width: 100 * $com-base-width;
+	height: 100 * $com-user-scale * $com-base-width;
+	img {
+	  width: 100%;
+	}
   }
-  .user-text {
-	padding: 10%;
+  .com-user-text {
+	padding: 1.5em 10%;
+	font-size: 1.14em;
+	color: rgb(141, 141, 141);
+	line-height: 1.38em;
   }
+  margin-bottom: 2em;
 }

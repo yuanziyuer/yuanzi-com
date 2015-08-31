@@ -1,2 +1,23 @@
-#news {
+.com-news {
+  @include media('<=desktop'){
+	padding-left: 13.8 * $com-base-width;
+	padding-right: 13.8 * $com-base-width;
+  }
+  .com-newstext {
+	margin-top: 2em;
+	margin-bottom: 1.5em;
+  }
+  .thumbnail {
+	max-width: 310px;
+	.caption {
+	  margin-bottom: auto;
+	  .com-news-title {
+		color: rgb(130, 130, 130);
+		line-height: 1.14em;
+		font-size: 1.14em;
+		height: 2.28em;
+		@include multiline-ellipsis(2);
+	  }
+	}
+  }
 }

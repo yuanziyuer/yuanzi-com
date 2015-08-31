@@ -1,5 +1,9 @@
-#slider {
-  img {
-	width: 100%;
+.com-slider {
+  .com-slider-cover {
+	width: 100 * $com-base-width;
+	height: 100 * $com-slider-scale * $com-base-width;
+	img {
+	  width: 100%;
+	}
   }
 }

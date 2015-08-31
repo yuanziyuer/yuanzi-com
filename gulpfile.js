@@ -1,8 +1,23 @@
 var gulp = require('gulp');
-var jshint = require('gulp-jshint');
+var plugins = require('gulp-load-plugins')({
+	lazy: true
+});
+var jshint = plugins.jshint;
 var jshintReporter = require('jshint-stylish');
-var watch = require('gulp-watch');
-var sass = require('gulp-sass');
+var watch = plugins.watch;
+var sass = plugins.sass;
+var shell = plugins.shell;
+var minimist = require('minimist');
+var nodemon = plugins.nodemon;
+var fs = require('fs');
+var BrowserSync = require('browser-sync').create();
+var reload = BrowserSync.reload;
+
+var knownOptions = {
+	string: 'env',
+	default: { env: process.env.NODE_ENV || 'development' }
+};
+var options = minimist(process.argv.slice(2), knownOptions);
 
 /*
  * Create variables for our project paths so we can change in one place
@@ -28,14 +43,38 @@ gulp.task('watch:lint', function () {
 		.pipe(jshint.reporter(jshintReporter));
 });
 
-// gulp watcher for sass
-gulp.task('watch:sass', ['sass'], function () {
+// sass任务：将.scss文件转换为css,放在stylesheets下
+gulp.task('sass', function () {
+	gulp.src('./public/styles/third.scss').pipe(sass.sync({ indentedSyntax: true }).on('error', sass.logError)).pipe(gulp.dest('./public/styles/'));
+});
+
+// shipit任务：部署代码到远程服务器
+gulp.task('deploy', shell.task(['shipit ' + options.env + ' deploy'], {
+	errorMessage: 'deploy fail'
+}));
+/**
+ * 使用 nodemone 启动服务器,启动之前先执行sass事件
+ */
+gulp.task('start', [
+	'sass'
+], function () {
+	var nodemonConfig = JSON.parse(fs.readFileSync('./nodemon.json'));
+	nodemon(nodemonConfig);
+	gulp.start('watch');
+});
+
+/**
+ * watch监控任务：监控sass，stylesheets，javascripts下的文件变动，
+ * 				当文件发生变动时自动刷新浏览器相关页面；
+ */
+gulp.task('watch', ['sass'], function () {
+	BrowserSync.init({
+		proxy: "localhost:3000"
+	});
+	// 监控文件的变动
 	gulp.watch('./public/styles/**/*.scss', [
 		'sass'
 	]);
-});
+	gulp.watch(['./public/**/*', './routes/**/*', './templates/**/*',]).on('change', reload);
 
-// sass任务：将.scss文件转换为css,放在stylesheets下
-gulp.task('sass', function () {
-	gulp.src('./public/styles/site.scss').pipe(sass.sync({ indentedSyntax: true }).on('error', sass.logError)).pipe(gulp.dest('./public/styles/'));
 });
