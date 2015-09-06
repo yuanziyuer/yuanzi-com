@@ -11,11 +11,11 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'yuanzi-com',
-	'brand': 'yuanzi-com',
+	'name': '元子育儿',
+	'brand': '元子',
 	
 	'sass': 'public',
-	'static': 'public',
+	'static': ['public', 'upload'],
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
@@ -25,7 +25,21 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+
+
+	'wysiwyg override toolbar': false,
+	'wysiwyg menubar': true,
+	'wysiwyg skin': 'lightgray',
+	'wysiwyg additional buttons': 'searchreplace visualchars,'
+	+ ' charmap ltr rtl pagebreak paste, forecolor backcolor,'
+	+' emoticons media, preview print ',
+	'wysiwyg additional plugins': 'example, table, advlist, anchor,'
+	+ ' autolink, autosave, bbcode, charmap, contextmenu, '
+	+ ' directionality, emoticons, fullpage, hr, media, pagebreak,'
+	+ ' paste, preview, print, searchreplace, textcolor,'
+	+ ' visualblocks, visualchars, wordcount',
+
 
 });
 
@@ -88,11 +102,23 @@ keystone.set('email tests', require('./routes/emails'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-categories'],
-	'galleries': 'galleries',
-	'enquiries': 'enquiries',
-	'users': 'users'
+	'轮播图': 'sliders',
+	'卡片': 'cards',
+	'达人': 'darens',
+	'达人描述': 'texts',
+	'新闻': 'news',
+	'达人申请': 'applies',
+	'关于我们': 'abouts'
 });
+
+// Configure cloudinary
+keystone.set('cloudinary config', { cloud_name: 'iyuanzi', api_key: '631835838924633', api_secret: 'XgDOSWb4uKTZ5X_u5Mzu7biRer0' });
+
+// 可选，会用'keystone_'作为所有内置标签的前缀
+//keystone.set('cloudinary prefix', 'keystone');
+
+// 可选，会用[{prefix}]/{list.path}/{field.path}/ 作为每个图片的public_id的前缀
+keystone.set('cloudinary folders', true);
 
 // Start Keystone to connect to your database and initialise the web server
 

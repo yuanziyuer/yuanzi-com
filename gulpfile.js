@@ -45,7 +45,7 @@ gulp.task('watch:lint', function () {
 
 // sass任务：将.scss文件转换为css,放在stylesheets下
 gulp.task('sass', function () {
-	gulp.src('./public/styles/third.scss').pipe(sass.sync({ indentedSyntax: true }).on('error', sass.logError)).pipe(gulp.dest('./public/styles/'));
+	gulp.src('./public/styles/site.scss').pipe(sass.sync({ indentedSyntax: true }).on('error', sass.logError)).pipe(gulp.dest('./public/styles/'));
 });
 
 // shipit任务：部署代码到远程服务器
@@ -75,6 +75,6 @@ gulp.task('watch', ['sass'], function () {
 	gulp.watch('./public/styles/**/*.scss', [
 		'sass'
 	]);
-	gulp.watch(['./public/**/*', './routes/**/*', './templates/**/*',]).on('change', reload);
+	gulp.watch(['./keystone.js', './public/**/*', './models/**/*', './routes/**/*', './templates/**/*',]).on('change', reload);
 
 });

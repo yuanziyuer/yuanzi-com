@@ -8,7 +8,7 @@
  * modules in your project's /lib directory.
  */
 
-var _ = require('underscore');
+var _ = require('lodash');
 
 
 /**
@@ -25,16 +25,9 @@ exports.initLocals = function(req, res, next) {
 	
 	locals.navLinks = [
 		{ label: 'Home',		key: 'home',		href: '/' },
-		{ label: 'Downloads',		key: 'downloads',		href: '/downloads' },
-		{ label: 'Card',		key: 'card',		href: '/card' },
-		{ label: 'About',		key: 'about',		href: '/about' },
-		{ label: '达人申请',		key: 'apply',		href: '/apply' },
-		{ label: '卡片',		key: 'gallery',		href: '/blog' },
-		{ label: '话题',		key: 'gallery1',		href: '/gallery' },
-		{ label: '轮播图',	key: 'contact',		href: '/contact' },
-		{ label: '新闻',		key: 'contact1',		href: '/contact' }
+		
 	];
-	
+
 	locals.user = req.user;
 	
 	next();

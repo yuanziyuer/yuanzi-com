@@ -11,6 +11,7 @@
     "node-sass-middleware": "^0.5.0",
     "react-redux": "^1.0.0",
     "redux": "^1.0.1",
+    "thenjs": "^2.0.0",
     "underscore": "^1.8.0"
   },
   "devDependencies": {

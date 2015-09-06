@@ -23,4 +23,18 @@
 @import "site/layout";
 
 
+
+@import "yuanzi-com/utils/variables";
+@import "yuanzi-com/utils/mixins";
+
 @import "yuanzi-com/yuanzi-com";
+
+@import "yuanzi-com/layout/header";
+@import "yuanzi-com/layout/slider";
+@import "yuanzi-com/layout/cards";
+@import "yuanzi-com/layout/user";
+@import "yuanzi-com/layout/news";
+@import "yuanzi-com/layout/footer";
+@import "yuanzi-com/pages/downloads";
+@import "yuanzi-com/pages/card";
+@import "yuanzi-com/pages/about";

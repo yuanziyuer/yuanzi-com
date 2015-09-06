@@ -1,18 +1,19 @@
 .com-footer {
-  position: relative;
   padding-top: 30px;
+
   .com-footer-container {
 	width: 100%;
 	.com-footer-top {
 	  padding-top: $com-footer-height;
+
 	  img {
 		max-height: 2em;
 	  }
 	}
 	.com-footer-bottom {
 	  padding-top: 10px;
-	  background-color: rgb(86, 86, 86);
-	  
+	  background-color: $com-footer-bottom-color;
+	  color: #ffffff;
 	}
   }
   

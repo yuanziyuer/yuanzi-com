@@ -1,9 +1,21 @@
+$breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
+$media-expressions: (
+		'screen': 'screen',
+		'print': 'print',
+		'handheld': 'handheld',
+		'landscape': '(orientation: landscape)',
+		'portrait': '(orientation: portrait)',
+		'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)',
+		'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi)'
+) !default;
+
 $com-base-height: 1vh;
 $com-base-width: 1vw;
 
 $com-base-block-size: 8vh;
 
-$com-header-height: $com-base-block-size;
+$com-header-height: 50px;
+$com-header-max-height: 50px;
 
 $com-nav-color: rgb(255,255,255);
 $com-nav-shadow: 0px 2px 5px rgba(0,0,0,0.5);
@@ -13,7 +25,11 @@ $com-slider-scale: 700 / 1280;
 $com-user-scale: 400 / 1280;
 
 $com-footer-height: $com-base-block-size;
+$com-footer-top-color: rgb(243, 243, 243);
+$com-footer-bottom-color: rgb(86, 86, 86);
 
 $com-downloads-content-height:  100vh - 3 * $com-base-block-size;
+$com-downloads-background-color:  rgb(216, 216, 216);
 
-$breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
+
+$com-content-height: 100vh - $com-base-block-size;

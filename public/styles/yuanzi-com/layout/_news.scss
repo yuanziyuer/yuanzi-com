@@ -1,8 +1,6 @@
 .com-news {
-  @include media('<=desktop'){
 	padding-left: 13.8 * $com-base-width;
 	padding-right: 13.8 * $com-base-width;
-  }
   .com-newstext {
 	margin-top: 2em;
 	margin-bottom: 1.5em;

@@ -1,8 +1,10 @@
 .com-cards {
-  @include media('<=desktop'){
-	padding-left: 13.8 * $com-base-width;
-	padding-right: 13.8 * $com-base-width;
+  @include media('>=desktop'){
+	height: $com-content-height;
+	
   }
+  padding-left: 13.8 * $com-base-width;
+  padding-right: 13.8 * $com-base-width;
   .com-hottext {
 	margin-top: 2em;
   }

@@ -1,1 +1,36 @@
+.com-pages-card {
+  padding-left: 13.8 * $com-base-width;
+  padding-right: 13.8 * $com-base-width;
+  .com-pages-conten {
+	padding-top: 4em;
+	
+	background-color: white;
+	.com-card-content {
+	  padding-left: 2em;
+	  padding-right: 2em;
+	  padding-bottom: 4em;
 
+	  img.com-user-avatar {
+		width: 2em;
+	  }
+	  .com-card-user {
+		.com-user-nickname {
+		  padding-left: 10px;
+		}
+	  }
+
+
+	}
+	.com-cards {
+	  padding: 0;
+	  .cards {
+		padding: 0;
+		padding-left: 2em;
+		padding-right: 2em;
+	  }
+	}
+  }
+  
+  
+  
+}
