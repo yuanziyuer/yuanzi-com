@@ -31,5 +31,3 @@ node_modules
 # webstorm
 .idea
 
-# bower
-bower_components

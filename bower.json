@@ -1,0 +1,19 @@
+{
+  "name": "yuanzi-com",
+  "version": "0.0.0",
+  "homepage": "https://github.com/yuanziyuer/yuanzi-com",
+  "authors": [
+    "crazyjingling <crazyjingling@126.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "include-media": "~1.4.1"
+  }
+}
