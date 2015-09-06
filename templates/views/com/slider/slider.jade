@@ -1,0 +1,18 @@
+section#slider.com-slider.carousel.slide(data-ride='carousel')
+	// Indicators
+	ol.carousel-indicators
+		each slider, index in data.sliders
+			li(data-target='#slider', data-slide-to=index)
+	// Wrapper for slides
+	.carousel-inner
+		each slider, index in data.sliders
+			if index == '0'
+				.item.active.com-slider-cover
+					a(href='#{slider.url}')
+						//todo:lazy
+						img(src='#{slider.cover.url}', data-echo='#{slider.cover.url}', alt='元子育儿')
+			else
+				.item.com-slider-cover
+					a(href='#{slider.url}')
+						//todo:lazy
+						img(src='#{slider.cover.url}', data-echo='#{slider.cover.url}', alt='元子育儿')

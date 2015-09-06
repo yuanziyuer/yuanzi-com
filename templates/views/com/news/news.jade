@@ -1,0 +1,13 @@
+section#news.com-news.container
+	.row
+		h4.com-newstext.text-center
+			| 元子新闻
+		.news
+			each item in data.news
+				.col-sm-6.col-md-4.col-lg-4
+					.thumbnail
+						a(href='#{item.url}', title='#{item.title}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+							img(src='#{defaultImg}', width='300', data-echo='#{item.cover.url}', alt='元子育儿')
+						.caption
+							p.com-news-title #{item.title}
+							

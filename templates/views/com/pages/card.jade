@@ -1,0 +1,36 @@
+extends ../layout/layout
+block content
+	section.container.com-pages-card
+		.row.cards.com-pages-conten
+			.col-md-8(role='main')
+				.com-card-content
+					img.com-card-cover(src='#{data.card.cover.url}', width='100%', height='150vw', data-echo='#{data.card.cover.url}', alt='元子育儿')
+					h3.com-card-title #{data.card.title}
+					.com-card-user
+						img.com-user-avatar.img-circle(src='#{data.card.owner.avatar.url}', width='5%', data-echo='#{data.card.owner.avatar.url}', alt='元子育儿')
+						span.com-user-nickname #{data.card.owner.nickname}
+					hr
+					#com-card-html
+						!= data.card.content
+						
+			.col-md-4.com-cards(style='height:100%;')
+				.cards.row
+					.col-sm-12.col-md-12.col-lg-12
+						p 热门内容
+						each card in data.otherCards
+							.thumbnail
+								a(href='/cards/#{card.cardId}', title='#{card.title}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+									img(src='#{card.cover.url}', width='300', data-echo='#{card.cover.url}', alt='元子育儿')
+								.caption
+									p.com-card-title.text-center #{card.title}
+									p.card-description
+										| #{card.description}
+									img.com-user-avatar.img-circle(src='#{card.owner.avatar.url}', width='300', data-echo='#{card.owner.avatar.url}', alt='元子育儿')
+									span.com-user-nickname #{card.owner.nickname}
+
+	// jQuery
+	script(src='/js/jquery/jquery-2.1.3.js')
+	script(src='/js/iframeResizer.min.js')
+	script.
+		iFrameResize();
+

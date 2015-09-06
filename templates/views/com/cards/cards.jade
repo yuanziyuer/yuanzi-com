@@ -1,0 +1,18 @@
+section#cards.com-cards.container
+	.row
+		h4.com-hottext.text-center
+			| 热门内容
+		.cards
+			each card in data.cards
+				.col-sm-6.col-md-3.col-lg-3
+					.thumbnail
+						a(href='/cards/#{card._id}', title='#{card.title}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+							img(src='#{defaultImg}', width='300', data-echo='#{card.cover.url}', alt='元子育儿')
+						.caption
+							p.com-card-title.text-center #{card.title}
+							p.card-description
+								| #{card.description}
+							img.com-user-avatar.img-circle(src='#{card.owner.avatar.url}', width='300', data-echo='#{card.owner.avatar.url}', alt='元子育儿')
+							span.com-user-nickname #{card.nickname}
+		.com-card-more.text-center
+			a.btn.btn-default(href='/cards') 阅读更多

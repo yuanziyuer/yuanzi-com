@@ -1,0 +1,28 @@
+section#user.com-user.container-fluid
+	.row
+		#users.carousel.slide(data-ride='carousel')
+			// Indicators
+			ol.carousel-indicators
+				each user in data.users
+					li(data-target='#users', data-slide-to=index)
+			// Wrapper for slides
+			.carousel-inner
+				each user, index in data.users
+					if index == '0'
+						.item.active.com-user-cover
+							//todo:lazy	
+							img(src='#{user.cover.url}', data-echo='#{user.cover.url}', alt='元子育儿')
+					else
+						.item.com-user-cover
+							//todo:lazy
+							img(src='#{user.cover.url}', data-echo='#{user.cover.url}', alt='元子育儿')
+		.col-md-12.text-center
+			.com-user-text
+				p #{data.texts.text1}
+				p #{data.texts.text2}
+				p #{data.texts.text3}
+				p #{data.texts.text4}
+				p #{data.texts.text5}
+			.col-lg-12
+				button.btn.btn-success
+					| 我也要成为达人
