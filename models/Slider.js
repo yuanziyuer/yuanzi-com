@@ -15,7 +15,6 @@ var Slider = new keystone.List('Slider', {
 
 Slider.add({
 	name: {type: String, required: true, label: '名称'},
-	createdAt: {type: Date, default: Date.now, label: '创建时间', noedit: true},
 	index: {type: Types.Number, label: '排序', default: 0, required: true},
 	url: {
 		type: Types.Url, 
@@ -34,8 +33,11 @@ Slider.add({
 		width: 1280,
 		height: 725,
 		format: 'jpg'
+	},
+	isPublished: {
+		type: Boolean, default: false, label: '是否发布'
 	}
 });
-Slider.defaultColumns = 'name|5%, createdAt|10%, index|2%, url|10%, cover';
+Slider.defaultColumns = 'name|10%, isPublished|10%, index|5%, url|10%, cover';
 
 Slider.register();

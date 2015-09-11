@@ -1,5 +1,8 @@
 .com-user {
+  
   .com-user-cover {
+	background-color: $com-base-color;
+
 	width: 100 * $com-base-width;
 	height: 100 * $com-user-scale * $com-base-width;
 	img {

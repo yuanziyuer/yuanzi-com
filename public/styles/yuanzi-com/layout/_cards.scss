@@ -1,10 +1,14 @@
 .com-cards {
   @include media('>=desktop'){
-	height: $com-content-height;
+	height: 100%;
 	
   }
   padding-left: 13.8 * $com-base-width;
   padding-right: 13.8 * $com-base-width;
+  @include media('>bigger'){
+	padding: 0;
+  }
+  
   .com-hottext {
 	margin-top: 2em;
   }
@@ -16,14 +20,17 @@
 		margin-bottom: auto;
 		.com-card-title {
 
-		  color: rgba(69, 69, 69, 1);
+		  color: rgb(69, 69, 69);
 		  line-height:1.14em;
 		  font-size: 1.14em;
+		  height:2.28em;
+		  
+		  @include multiline-ellipsis(2);
 		}
 		.card-description {
-		  color: rgba(130,130,130,1);
+		  color: rgb(130,130,130);
 		  line-height:2em;
-		  height:6em;
+		  height:8em;
 		  @include multiline-ellipsis(4);
 
 		}

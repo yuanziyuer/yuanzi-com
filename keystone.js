@@ -1,6 +1,9 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
+
 require('dotenv').load();
+var config = require('./useConfig');
+var uuid = require('node-uuid');
 
 // Require keystone
 var keystone = require('keystone');
@@ -13,6 +16,8 @@ keystone.init({
 
 	'name': '元子育儿',
 	'brand': '元子',
+
+	'port': config.port,
 	
 	'sass': 'public',
 	'static': ['public', 'upload'],
@@ -21,28 +26,44 @@ keystone.init({
 	'view engine': 'jade',
 	
 	'emails': 'templates/emails',
-	
+
+	'mongo': config.db,
+		
 	'auto update': true,
 	'session': true,
+	'session store': 'mongo',
+	
 	'auth': true,
 	'user model': 'User',
 
-
+	'wysiwyg cloudinary images': true,
 	'wysiwyg override toolbar': false,
 	'wysiwyg menubar': true,
 	'wysiwyg skin': 'lightgray',
-	'wysiwyg additional buttons': 'searchreplace visualchars,'
+	'wysiwyg additional buttons': ' visualchars,'
 	+ ' charmap ltr rtl pagebreak paste, forecolor backcolor,'
 	+' emoticons media, preview print ',
-	'wysiwyg additional plugins': 'example, table, advlist, anchor,'
-	+ ' autolink, autosave, bbcode, charmap, contextmenu, '
-	+ ' directionality, emoticons, fullpage, hr, media, pagebreak,'
-	+ ' paste, preview, print, searchreplace, textcolor,'
-	+ ' visualblocks, visualchars, wordcount',
+	'wysiwyg additional plugins': 'preview, textcolor, wordcount',
 
 
 });
+/**
+ * app.use(session({
+    secret: config.sessionSecret,
+    store: new MongoStore({
+        url: config.db[0],
+        autoReconnect: true
 
+    }),
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: config.sessionMaxAge
+
+    }
+
+}));
+ */
 // Load your project's Models
 
 keystone.import('models');
@@ -56,6 +77,7 @@ keystone.set('locals', {
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable
+
 });
 
 // Load your project's Routes
@@ -104,11 +126,10 @@ keystone.set('email tests', require('./routes/emails'));
 keystone.set('nav', {
 	'轮播图': 'sliders',
 	'卡片': 'cards',
-	'达人': 'darens',
+	'达人': 'talents',
 	'达人描述': 'texts',
 	'新闻': 'news',
-	'达人申请': 'applies',
-	'关于我们': 'abouts'
+	'达人申请': 'applies'
 });
 
 // Configure cloudinary

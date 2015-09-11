@@ -3,7 +3,7 @@
   * @param {Number} $lineCount - count to display
   */
 @mixin multiline-ellipsis($lineCount){
-  @media all and (-webkit-transform-3d){
+  @media all{
 	&{
 	  white-space:normal;
 	  -webkit-line-clamp:$lineCount;
@@ -14,4 +14,7 @@
 	}
   }
 }
+
+
+
 

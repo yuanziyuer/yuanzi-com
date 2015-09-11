@@ -1,9 +1,8 @@
 
   .com-header {
 	width: 100%;
-	margin-bottom: $com-header-height;
 	.navbar {
-	  height: $com-header-height;
+	  min-height: $com-header-height;
 	  background-color: $com-nav-color;
 	  box-shadow: $com-nav-shadow;
 		.navbar-brand {

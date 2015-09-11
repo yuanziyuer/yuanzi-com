@@ -1,7 +1,4 @@
 var keystone = require('keystone');
-var then = require('thenjs');
-var _ = require('lodash');
-var sliderPrefix = '/slider/';
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
@@ -11,7 +8,9 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (next) {
 
 		var q = keystone.list('Slider').model
-			.find()
+			.find({
+				isPublished: true
+			})
 			.sort('index');
 
 		q.exec(function (err, results) {
@@ -25,7 +24,7 @@ exports = module.exports = function (req, res) {
 
 		var q = keystone.list('Card').model
 			.find({
-				isPublisted: true
+				isPublished: true
 			}).sort('index')
 			.limit(4);
 
@@ -37,8 +36,10 @@ exports = module.exports = function (req, res) {
 	});
 	view.on('init', function (next) {
 
-		var q = keystone.list('Daren').model
-			.find();
+		var q = keystone.list('Talent').model
+			.find({
+				isPublished: true
+			}).sort('index');
 
 		q.exec(function (err, results) {
 			locals.data.users = results;
@@ -60,8 +61,11 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (next) {
 
 		var q = keystone.list('News').model
-			.find()
-			.sort('index');
+			.find({
+				isPublished: true
+			})
+			.sort('index')
+			.limit(6);
 
 		q.exec(function (err, results) {
 			locals.data.news = results;
@@ -69,10 +73,6 @@ exports = module.exports = function (req, res) {
 		});
 
 	});
-
-	locals.section = 'home';
-
-	locals.defaultImg = 'http://assets.iyuanzi.net/cardDescription/public/images/blank.gif';
 
 	view.render('com/index');
 

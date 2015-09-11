@@ -1,21 +1,21 @@
 section#user.com-user.container-fluid
 	.row
-		#users.carousel.slide(data-ride='carousel')
+		#users.carousel.slide(data-ride='carousel' data-pause='hover')
 			// Indicators
-			ol.carousel-indicators
+			ol.carousel-indicators.text-right
 				each user in data.users
 					li(data-target='#users', data-slide-to=index)
 			// Wrapper for slides
-			.carousel-inner
+			.carousel-inner(style='cursor: move;')
 				each user, index in data.users
 					if index == '0'
 						.item.active.com-user-cover
 							//todo:lazy	
-							img(src='#{user.cover.url}', data-echo='#{user.cover.url}', alt='元子育儿')
+							img(src='#{user.cover.url}', width='100%', alt='元子育儿')
 					else
 						.item.com-user-cover
 							//todo:lazy
-							img(src='#{user.cover.url}', data-echo='#{user.cover.url}', alt='元子育儿')
+							img(src='#{user.cover.url}', width='100%', alt='元子育儿')
 		.col-md-12.text-center
 			.com-user-text
 				p #{data.texts.text1}
@@ -24,5 +24,5 @@ section#user.com-user.container-fluid
 				p #{data.texts.text4}
 				p #{data.texts.text5}
 			.col-lg-12
-				button.btn.btn-success
+				a.btn.btn-success(href='/apply' hidden='hidden')
 					| 我也要成为达人

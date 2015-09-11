@@ -1,0 +1,35 @@
+html, body {
+  height: 100%;
+
+}
+body {
+  background-color: $com-base-color;
+  color: $com-base-font-color;
+}
+.com-base-padding {
+  padding-left: 13.8 * $com-base-width;
+  padding-right: 13.8 * $com-base-width;
+  @include media('>bigger'){
+	padding: 0;
+  }
+
+}
+
+.com-content-container {
+  padding-bottom: $com-footer-height;
+  padding-top: $com-header-height;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+
+  margin: 0 auto (0-$com-footer-height);
+}
+
+.carousel-indicators {
+  li {
+	
+	border: 1px solid #000000;
+  }
+}
+ 
+

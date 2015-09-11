@@ -23,7 +23,7 @@ exports = module.exports = function(req, res) {
 
 		var q = keystone.list('Card').model
 			.find({
-				isPublisted: true,
+				isPublished: true,
 				_id: {
 					'$ne': cardId
 				}
@@ -32,7 +32,6 @@ exports = module.exports = function(req, res) {
 
 		q.exec(function(err, results) {
 			locals.data.otherCards =  _.map(results, function (item) {
-					item.cardId = item._id;
 					delete item.content;
 					return item;
 				});
@@ -40,12 +39,7 @@ exports = module.exports = function(req, res) {
 		});
 
 	});
-	// locals.section is used to set the currently selected
-	// item in the header navigation.
-	locals.section = 'home';
-
-	locals.defaultImg = 'http://assets.iyuanzi.net/cardDescription/public/images/blank.gif';
-
+	
 	// Render the view
 	view.render('com/pages/card');
 

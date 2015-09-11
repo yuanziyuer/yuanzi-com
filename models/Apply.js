@@ -2,38 +2,86 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * User Model
+ * Apply Model
  * ==========
  */
-
-var Apply = new keystone.List('Apply',{
-	label: '达人申请'
+var Apply = new keystone.List('Apply', {
+	label: '卡片',
+	autokey: {from: 'name', path: 'key', unique: true}
 });
 
 Apply.add({
-	name: { type: Types.Name, required: true, index: true },
-	email: { type: Types.Email, initial: true, required: true, index: true },
-	password: { type: Types.Password, initial: true, required: true }
-}, 'Permissions', {
-	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true }
+	name: {
+		type: String,
+		label: '姓名',
+		initial: true
+	},
+	mobile: {
+		type: String,
+		label: '手机号码',
+		initial: true
+	},
+	weixin: {
+		type: String,
+		label: '微信账号',
+		initial: true
+	},
+	email: {
+		type: Types.Email,
+		label: '邮箱地址',
+		initial: true
+	},
+	location: {
+		type: String,
+		label: '所在城市',
+		initial: true
+	},
+	neighborhood: {
+		type: String,
+		label: '社区名称',
+		initial: true
+	},
+	isFullTime: {
+		type: Types.Select,
+		options: '是, 否',
+		default: '是',
+		label: '全职在家看孩子',
+		initial: true
+	},
+	idea: {
+		type: Types.Textarea,
+		label: '育儿理念',
+		initial: true
+	},
+	selfIntroduction: {
+		type: Types.Textarea,
+		label: '自我介绍',
+		initial: true
+	},
+	gender: { 
+		type: Types.Select, 
+		options: 'f, m', 
+		default: 'm',
+		label: '性别'
+	},
+	baby: {
+		babyGender: {
+			type: Types.Select,
+			options: 'f, m',
+			default: 'm',
+			label: '宝宝性别'
+		},
+		birthday: {
+			type: Types.Date,
+			label: '宝宝年龄',
+			initial: true
+		}
+	}
 });
-
-// Provide access to Keystone
-Apply.schema.virtual('canAccessKeystone').get(function() {
-	return this.isAdmin;
-});
-
-
-/**
- * Relationships
- */
-
-Apply.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
-
 
 /**
  * Registration
  */
 
-Apply.defaultColumns = 'name, email, isAdmin';
+Apply.defaultColumns = 'name, mobile, weixin, email, location, neighborhood, isFullTime, idea, selfIntroduction, gender, baby.babyGender, baby.birthday';
 Apply.register();

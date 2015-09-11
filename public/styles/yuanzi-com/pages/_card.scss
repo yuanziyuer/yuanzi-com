@@ -1,6 +1,4 @@
 .com-pages-card {
-  padding-left: 13.8 * $com-base-width;
-  padding-right: 13.8 * $com-base-width;
   .com-pages-conten {
 	padding-top: 4em;
 	
@@ -11,7 +9,7 @@
 	  padding-bottom: 4em;
 
 	  img.com-user-avatar {
-		width: 2em;
+		width: 4em;
 	  }
 	  .com-card-user {
 		.com-user-nickname {
@@ -24,13 +22,22 @@
 	.com-cards {
 	  padding: 0;
 	  .cards {
+		margin-top: 20px;
 		padding: 0;
 		padding-left: 2em;
 		padding-right: 2em;
 	  }
 	}
   }
-  
-  
+  #com-card-html {
+	img {
+	  max-width: 100%;
+	  max-height: 50vh;
+	}
+  }
+  .com-news-hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+  }
   
 }

@@ -29,7 +29,7 @@
 		line-height: 1em;
 		&:before {
 		  content: "•";
-		  font-size: 2em; /* or whatever */
+		  font-size: 2em; 
 		  color: red;
 		  padding-right: 5px;
 		}
@@ -38,3 +38,23 @@
   }
   
 }
+.com-downloads-img {
+  position: relative;
+  @include media('<=tablet'){
+	display: none;
+  }
+  .com-downloads-img-left {
+	position: absolute;
+	width: 13.8vw;
+	z-index: 10000;
+	top: 10vh;
+  }
+  .com-downloads-img-right {
+	position: absolute;
+	width: 13.8vw;
+	z-index: 10000;
+	top: 20vh;
+	right: 0;
+  }
+}
+

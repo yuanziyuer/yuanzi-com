@@ -1,6 +1,6 @@
-section#slider.com-slider.carousel.slide(data-ride='carousel')
+section#slider.com-slider.carousel.slide(data-ride='carousel' data-pause='hover')
 	// Indicators
-	ol.carousel-indicators
+	ol.carousel-indicators.text-right
 		each slider, index in data.sliders
 			li(data-target='#slider', data-slide-to=index)
 	// Wrapper for slides
@@ -10,9 +10,9 @@ section#slider.com-slider.carousel.slide(data-ride='carousel')
 				.item.active.com-slider-cover
 					a(href='#{slider.url}')
 						//todo:lazy
-						img(src='#{slider.cover.url}', data-echo='#{slider.cover.url}', alt='元子育儿')
+						img(src='#{slider.cover.url}', width='300', alt='元子育儿')
 			else
 				.item.com-slider-cover
 					a(href='#{slider.url}')
 						//todo:lazy
-						img(src='#{slider.cover.url}', data-echo='#{slider.cover.url}', alt='元子育儿')
+						img(src='#{slider.cover.url}', width='300', alt='元子育儿')

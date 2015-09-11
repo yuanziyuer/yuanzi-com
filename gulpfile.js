@@ -12,6 +12,8 @@ var nodemon = plugins.nodemon;
 var fs = require('fs');
 var BrowserSync = require('browser-sync').create();
 var reload = BrowserSync.reload;
+var minifycss = plugins.minifyCss;
+var rename = plugins.rename;
 
 var knownOptions = {
 	string: 'env',
@@ -67,14 +69,31 @@ gulp.task('start', [
  * watch监控任务：监控sass，stylesheets，javascripts下的文件变动，
  * 				当文件发生变动时自动刷新浏览器相关页面；
  */
-gulp.task('watch', ['sass'], function () {
+gulp.task('watch', ['sass', 'autoprefixer'], function () {
 	BrowserSync.init({
-		proxy: "localhost:3000"
+		proxy: "localhost:3040"
 	});
 	// 监控文件的变动
 	gulp.watch('./public/styles/**/*.scss', [
-		'sass'
+		'sass',
+		'autoprefixer'
 	]);
 	gulp.watch(['./keystone.js', './public/**/*', './models/**/*', './routes/**/*', './templates/**/*',]).on('change', reload);
 
+});
+
+gulp.task('autoprefixer', function () {
+	var postcss      = require('gulp-postcss');
+	var sourcemaps   = require('gulp-sourcemaps');
+	var autoprefixer = require('autoprefixer');
+
+	return gulp.src('./public/styles/site.css')
+		.pipe(sourcemaps.init())
+		.pipe(postcss([ autoprefixer({ browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'] }) ]))
+		.pipe(minifycss()) // 执行压缩
+		.pipe(rename({
+			suffix: '.min'
+
+		}))
+		.pipe(gulp.dest('./public/styles'));
 });

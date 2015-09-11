@@ -1,0 +1,23 @@
+extends ../layout/layout
+block content
+	section.container.com-pages-card
+		.row.cards.com-pages-conten
+			.col-md-8(role='main')
+				.com-card-content
+					h3.com-card-title #{data.news.name}
+					#com-card-html
+						!= data.news.content
+						
+			.col-md-4.com-cards(style='height:100%;')
+				.cards.row
+					.col-sm-12.col-md-12.col-lg-12
+						p 更多消息
+						each item in data.otherNews
+							if item.isOurs
+								a(href='/news/#{item._id}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+									| #{item.name}
+							else
+								a(href='#{item.url}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+									| #{item.name}
+							hr.com-news-hr
+						

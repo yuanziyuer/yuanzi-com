@@ -1,13 +1,22 @@
 section#news.com-news.container
+	h4.com-newstext.text-center
+		| 元子新闻
 	.row
-		h4.com-newstext.text-center
-			| 元子新闻
 		.news
 			each item in data.news
 				.col-sm-6.col-md-4.col-lg-4
 					.thumbnail
-						a(href='#{item.url}', title='#{item.title}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
-							img(src='#{defaultImg}', width='300', data-echo='#{item.cover.url}', alt='元子育儿')
+						if item.isOurs
+							a(href='/news/#{item._id}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+								img(src='/images/placeholder.jpg', width='300', data-echo='#{item.cover.url || "/images/placeholder-news.jpg"}', alt='元子育儿')
+						else
+							a(href='#{item.url}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+								img(src='/images/placeholder.jpg', width='300', data-echo='#{item.cover.url || "/images/placeholder-news.jpg"}', alt='元子育儿')
 						.caption
-							p.com-news-title #{item.title}
+							if item.isOurs
+								a(href='/news/#{item._id}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+									p.com-news-title #{item.name}							
+							else
+								a(href='#{item.url}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
+									p.com-news-title #{item.name}	
 							
