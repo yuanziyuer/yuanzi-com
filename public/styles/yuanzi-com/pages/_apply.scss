@@ -1,1 +1,66 @@
+.com-pages-apply {
+  width: 100%;
+
+  @include media('<tablet') {
+	z-index: 10;
+	.com-apply-img {
+	  display: none;
+	}
+
+	.com-apply-content {
+	  float: none;
+	}
+  }
+  
+  @include media('>=tablet') {
+	position: relative;
+
+	.com-apply-content {
+	  height: 50vh;
+	  overflow: auto;
+	  float: right;
+	  position: absolute;
+	  z-index: 10;
+	  margin-top: 4em;
+	  margin-bottom: 4em;
+	}
+
+  }
+
+  .com-apply-img {
+
+	float: left;
+	width: 100%;
+	height: $com-downloads-content-height;
+	img {
+	  object-fit: cover;
+	  object-position: 0 0;
+	  width: 100%;
+	  height: $com-downloads-content-height;
+	}
+  }
+ 
+  .com-apply-content {
+	background-color: white;
+	max-width: 400px;
+	padding-top: 10px;
+
+	right: 10%;
+	font-size: 10px;
+
+
+	form {
+	  padding-left: 4em;
+	  padding-left: 4em;
+	  margin: 15px;
+	  min-width: 300px;
+	}
+	.com-label {
+	  width: 10em;
+	}
+  }
+
+
+
+}
 

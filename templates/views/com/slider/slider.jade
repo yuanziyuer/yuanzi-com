@@ -1,18 +1,22 @@
 section#slider.com-slider.carousel.slide(data-ride='carousel' data-pause='hover')
 	// Indicators
 	ol.carousel-indicators.text-right
-		each slider, index in data.sliders
-			li(data-target='#slider', data-slide-to=index)
+		li(data-target='#slider', data-slide-to=0)
+		li(data-target='#slider', data-slide-to=1)
+		li(data-target='#slider', data-slide-to=2)
+		li(data-target='#slider', data-slide-to=3)
 	// Wrapper for slides
 	.carousel-inner
-		each slider, index in data.sliders
-			if index == '0'
-				.item.active.com-slider-cover
-					a(href='#{slider.url}')
-						//todo:lazy
-						img(src='#{slider.cover.url}', width='300', alt='元子育儿')
-			else
-				.item.com-slider-cover
-					a(href='#{slider.url}')
-						//todo:lazy
-						img(src='#{slider.cover.url}', width='300', alt='元子育儿')
+		.item.active.com-slider-cover
+			a(href='#')
+				img(src="/images/banner/banner1.jpg", width='100%', alt='元子育儿', data-at2x='/images/banner/banner1@2x.jpg')
+		.item.com-slider-cover
+			a(href='#')
+				img(src="/images/banner/banner2.jpg", width='100%', alt='元子育儿', data-at2x='/images/banner/banner2@2x.jpg')
+		.item.com-slider-cover
+			a(href='http://iyuanzi.tipjoy.cn/IYUANZI_CEMWechat/Activity/ActivityDetail?id=108')
+				img(src="/images/banner/banner3.jpg", width='100%', alt='元子育儿', data-at2x='/images/banner/banner3@2x.jpg')
+		.item.com-slider-cover
+			a(href='http://v.youku.com/v_show/id_XMTMwNzYzNTg1Mg==.html')
+				img(src="/images/banner/banner4.jpg", width='100%', alt='元子育儿', data-at2x='/images/banner/banner4@2x.jpg')
+		

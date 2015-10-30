@@ -3,4 +3,21 @@ block content
 	include slider/slider
 	include cards/cards
 	include user/user
-	include news/news	
+	include news/news
+
+block scripts
+	script(src='/js/hammer.min.js')
+	script(src='/js/jquery.hammer.js')
+	script.
+		$('.carousel').hammer().on('swipeleft', function () {
+			$(this).carousel('next');
+		});
+		$('.carousel').hammer().on('swiperight', function () {
+			$(this).carousel('prev');
+		});
+		$('.carousel').carousel({
+			interval: 5000,
+			pause: 'hover',
+			wrap: true
+		});
+	script(src='/js/retina.min.js')

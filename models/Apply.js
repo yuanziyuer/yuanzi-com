@@ -6,7 +6,7 @@ var Types = keystone.Field.Types;
  * ==========
  */
 var Apply = new keystone.List('Apply', {
-	label: '卡片',
+	label: '达人申请',
 	autokey: {from: 'name', path: 'key', unique: true}
 });
 
@@ -27,11 +27,11 @@ Apply.add({
 		initial: true
 	},
 	email: {
-		type: Types.Email,
+		type: String,
 		label: '邮箱地址',
 		initial: true
 	},
-	location: {
+	city: {
 		type: String,
 		label: '所在城市',
 		initial: true
@@ -42,40 +42,37 @@ Apply.add({
 		initial: true
 	},
 	isFullTime: {
-		type: Types.Select,
-		options: '是, 否',
+		type: String,
 		default: '是',
 		label: '全职在家看孩子',
 		initial: true
 	},
 	idea: {
-		type: Types.Textarea,
+		type: String,
 		label: '育儿理念',
 		initial: true
 	},
 	selfIntroduction: {
-		type: Types.Textarea,
+		type: String,
 		label: '自我介绍',
 		initial: true
 	},
 	gender: { 
-		type: Types.Select, 
+		type: String, 
 		options: 'f, m', 
 		default: 'm',
 		label: '性别'
 	},
-	baby: {
-		babyGender: {
-			type: Types.Select,
-			options: 'f, m',
-			default: 'm',
-			label: '宝宝性别'
-		},
-		birthday: {
-			type: Types.Date,
-			label: '宝宝年龄',
-			initial: true
-		}
+	babyGender: {
+		type: String,
+		options: 'f, m',
+		default: 'm',
+		label: '宝宝性别'
+	},
+	babyBirthday: {
+		type: String,
+		label: '宝宝年龄',
+		initial: true
 	}
 });
 

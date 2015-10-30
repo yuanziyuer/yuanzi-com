@@ -1,42 +1,61 @@
 .com-pages-downloads {
   width: 100%;
-  
-  @include media('landscape') {
-	position: relative;
+
+  @include media('<tablet', 'portrait') {
+	z-index: 10;
+	.com-downloads-img {
+	  display: none;
+	}
+	.com-downloads-content {
+	  float: none;
+	  padding-right: 10%;
+	  padding-left: 10%;
+	}
 	
+  }
+  @include media('<tablet', 'landscape') {
+	position: relative;
+
 	.com-downloads-content {
 	  float: right;
 	  position: absolute;
 	  z-index: 10;
 
 	}
-	.com-apply-content {
+	
+  }
+  @include media('>=tablet') {
+	position: relative;
+	.com-downloads-content {
 	  float: right;
 	  position: absolute;
 	  z-index: 10;
 
 	}
+	
+
   }
-  
-  
+
   .com-downloads-img {
+	
 	float: left;
 	width: 100%;
+	height: $com-downloads-content-height;
 	img {
 	  object-fit: cover;
+	  object-position: 0 0;
 	  width: 100%;
 	  height: $com-downloads-content-height;
 	}
   }
   .com-downloads-content {
-
 	padding-top: $com-downloads-content-height / 3;
 	padding-bottom: $com-downloads-content-height / 3;
 	right: 10%;
 	
 	.com-downloads-btn {
 	  float: left;
-	  padding-top: 10%;	
+	  padding-top: 10%;
 	}
 	.com-qr-code {
 	  float: right;
@@ -47,27 +66,9 @@
 	  background-size: cover;
 	}
   }
-  .com-apply-content {
-	background-color: white;
-	box-shadow: $com-nav-shadow;
-	max-width: 400px;
-	height: 50vh;
-	margin-top: 10px;
-	padding-top: 10px;
-	overflow: auto;
-	right: 10%;
-	font-size: 10px;
-	.com-downloads-btn {
-	  float: left;
-	  padding-top: 10%;
-	}
-	.com-qr-code {
-	  float: right;
-	  display: block;
-	  width: 128px;
-	  height: 128px;
-	  background: url('/images/qrcode.png') no-repeat;
-	}
-  }
+  
+
+
+
 }
 

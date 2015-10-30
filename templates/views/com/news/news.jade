@@ -1,5 +1,5 @@
-section#news.com-news.container
-	h4.com-newstext.text-center
+section.com-news.container
+	h3.com-newstext.text-center
 		| 元子新闻
 	.row
 		.news
@@ -8,10 +8,10 @@ section#news.com-news.container
 					.thumbnail
 						if item.isOurs
 							a(href='/news/#{item._id}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
-								img(src='/images/placeholder.jpg', width='300', data-echo='#{item.cover.url || "/images/placeholder-news.jpg"}', alt='元子育儿')
+								img(src='/images/placeholder.jpg', width='300', height='225', data-echo='#{item.cover.url || "/images/placeholder-news.jpg"}', alt='元子育儿', data-no-retina)
 						else
 							a(href='#{item.url}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
-								img(src='/images/placeholder.jpg', width='300', data-echo='#{item.cover.url || "/images/placeholder-news.jpg"}', alt='元子育儿')
+								img(src='/images/placeholder.jpg', width='300', height='225', data-echo='#{item.cover.url || "/images/placeholder-news.jpg"}', alt='元子育儿', data-no-retina)
 						.caption
 							if item.isOurs
 								a(href='/news/#{item._id}', title='#{item.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")

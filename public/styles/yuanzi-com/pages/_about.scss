@@ -1,3 +1,23 @@
+.com-about-img {
+  position: relative;
+  @include media('<=tablet'){
+	display: none;
+  }
+  .com-about-img-left {
+	position: absolute;
+	width: 13.8vw;
+	z-index: 10000;
+	top: 10vh;
+  }
+  .com-about-img-right {
+	position: absolute;
+	width: 13.8vw;
+	z-index: 10000;
+	top: 20vh;
+	right: 0;
+  }
+}
+
 .com-about {
   @include media('<=desktop'){
 	padding: 0;
@@ -37,24 +57,5 @@
 	}
   }
   
-}
-.com-downloads-img {
-  position: relative;
-  @include media('<=tablet'){
-	display: none;
-  }
-  .com-downloads-img-left {
-	position: absolute;
-	width: 13.8vw;
-	z-index: 10000;
-	top: 10vh;
-  }
-  .com-downloads-img-right {
-	position: absolute;
-	width: 13.8vw;
-	z-index: 10000;
-	top: 20vh;
-	right: 0;
-  }
 }
 

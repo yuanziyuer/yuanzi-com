@@ -14,7 +14,17 @@ exports = module.exports = function (req, res) {
 			.sort('index');
 
 		q.exec(function (err, results) {
-			locals.data.sliders = results;
+			locals.data.sliders = results.map(function (item) {
+				item.cover.url = item._.cover.crop(1280, 650, {
+					crop: 'crop',
+					gravity: 'faces:center',
+				});
+				item.cover2x.url = item._.cover2x.crop(1280, 650, {
+					crop: 'crop',
+					gravity: 'faces:center',
+				});
+				return item;
+			});
 			next(err);
 		});
 
@@ -42,7 +52,18 @@ exports = module.exports = function (req, res) {
 			}).sort('index');
 
 		q.exec(function (err, results) {
-			locals.data.users = results;
+			locals.data.users = results.map(function (item) {
+				item.cover.url = item._.cover.crop(1280, 650, {
+					crop: 'crop',
+					gravity: 'faces:center',
+				});
+				item.cover2x.url = item._.cover2x.crop(1280, 650, {
+					crop: 'crop',
+					gravity: 'faces:center',
+				});
+				return item;
+			
+			});
 			next(err);
 		});
 

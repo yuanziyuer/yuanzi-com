@@ -31,7 +31,16 @@ Slider.add({
 		folder: 'sliders',
 		label: '图片',
 		width: 1280,
-		height: 725,
+		height: 650,
+		format: 'jpg'
+	},
+	cover2x: {
+		type: Types.CloudinaryImage,
+		publicID: 'slider',
+		folder: 'sliders',
+		label: 'retina高清2倍图',
+		width: 1280,
+		height: 650,
 		format: 'jpg'
 	},
 	isPublished: {

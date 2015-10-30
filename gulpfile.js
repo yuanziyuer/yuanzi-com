@@ -47,7 +47,10 @@ gulp.task('watch:lint', function () {
 
 // sass任务：将.scss文件转换为css,放在stylesheets下
 gulp.task('sass', function () {
-	gulp.src('./public/styles/site.scss').pipe(sass.sync({ indentedSyntax: true }).on('error', sass.logError)).pipe(gulp.dest('./public/styles/'));
+	return sass('./public/styles/site.scss')
+		.pipe(gulp.dest('./public/styles/'))
+		.pipe(reload({ stream:true }));
+	
 });
 
 // shipit任务：部署代码到远程服务器

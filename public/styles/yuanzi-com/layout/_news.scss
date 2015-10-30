@@ -1,6 +1,7 @@
 .com-news {
   padding-left: 13.8 * $com-base-width;
   padding-right: 13.8 * $com-base-width;
+  margin-top: 50px;
   @include media('>bigger'){
 	padding: 0;
   }
@@ -11,7 +12,9 @@
   .news {
 	  
 	.thumbnail {
-	  max-width: 310px;
+	  img {
+		width: 100%;
+	  }
 	  .caption {
 		margin-bottom: auto;
 		.com-news-title {

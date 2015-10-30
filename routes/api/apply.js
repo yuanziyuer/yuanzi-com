@@ -1,17 +1,17 @@
 var keystone = require('keystone');
 
-exports = module.exports = function(req, res) {
+exports = module.exports = function(req, res, next) {
 	var Apply = keystone.list('Apply');
 	var params = req.body;
-	console.log('=================================params', params);
-	var newApply = new Apply.model({
-		title: 'New Post'
-	});
+	var newApply = new Apply.model(params);
 
+	newApply.save(function(err) {
+		if(err){
+			next(err);
+		}else{
+			var view = new keystone.View(req, res);
 
-	newApply.save(function(err, result) {
-		console.log('=================================err,result', err,result);
-		// post已保存	
+			view.render('com/pages/apply');
+		}
 	});
-	
 };

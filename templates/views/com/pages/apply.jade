@@ -1,83 +1,97 @@
 extends ../layout/layout
 block content
-	section.com-pages-downloads
-		.com-pages-downloads
-			.com-downloads-img
-				img(src="/images/apply.png", width='100%')
-			.com-apply-content.container
-				.row
-					form.form-horizontal(data-toggle="validator", role='form', action='/apply' method="post")
-						.form-group
-							label.col-sm-4.control-label 姓名
-							.col-sm-8
-								input#nickname(type='text' required )
-						.form-group
-							label.col-sm-4.control-label 手机号码
-							.col-sm-8
-								input#mobile(type='number' pattern="^1[0-9]{10}$" required)
-	
-						.form-group
-							label.col-sm-4.control-label 微信账号
-							.col-sm-8
-								input#weichart(type='text' required)
-						.form-group
-							label.col-sm-4.control-label 邮箱地址
-							.col-sm-8
-								input#email(type='email', required, data-error="无效邮箱")
-								.help-block.with-errors
-						.form-group
-							label.col-sm-4.control-label 所在城市
-							.col-sm-8
-								input#city(type='text' required)
-						.form-group
-							label.col-sm-4.control-label 社区名称
-							.col-sm-8
-								input#neighborhood(type='text' required)
-	
-						.form-group
-							label.col-sm-4.control-label 性别
-							.col-sm-8
-								label.radio-inline
-									input#gender(type='radio', name='gender', value='m', checked='')
-									|   男
-								label.radio-inline
-									input#gender(type='radio', name='gender', value='f')
-									|   女
-							
-						.form-group
-							label.col-sm-4.control-label 宝宝性别
-							.col-sm-8
-								label.radio-inline
-									input#babyGender(type='radio', name='babyGender', value='m', checked='')
-									|   男
-								label.radio-inline
-									input#babyGender(type='radio', name='babyGender', value='f')
-									|   女
-	
-						.form-group
-							label.col-sm-4.control-label 宝宝生日
-							.col-sm-8
-								input#birthday(type='text', value='')
-						.form-group
-							label.col-sm-4.control-label 全职在家看孩子
-							.col-sm-8
-								label.radio-inline
-									input#isFullTime(type='radio', name='isFullTime', value='1', checked='')
-									|   是
-								label.radio-inline
-									input#isFullTime(type='radio', name='isFullTime', value='0')
-									|   否
-						.form-group
-							label.col-sm-4.control-label 育儿理念
-							.col-sm-8
-								textarea#idea(type='text', required)
-						.form-group
-							label.col-sm-4.control-label 自我介绍
-							.col-sm-8
-								textarea#selfIntroduction(type='text', required)
-						.form-group.text-center
-							button.btn.btn-success(type='submit') Submit
+	.com-pages-apply
+		.com-apply-img
+			img(src="/images/apply.png", width='100%', data-no-retina)
+		.com-apply-content.container
+			.row
+				form#apply.form-horizontal(role='form', action='/apply', method="POST", autocomplete='on')
+					.form-group.form-inline
+						label.control-label.com-label 姓名
+						input#name(name='name' type='text' required )
+					.form-group.form-inline
+						label.control-label.com-label 手机号码
+						input#mobile(name='mobile' type='number' pattern="^1[0-9]{10}$" required)
+
+					.form-group.form-inline
+						label.control-label.com-label 微信账号
+						input#weixin(name='weixin' type='text' required)
+					.form-group.form-inline
+						label.control-label.com-label 邮箱地址
+						input#email(name='email' type='email', required, data-error="无效邮箱")
+					.form-group.form-inline
+						label.control-label.com-label 所在城市
+						input#city(name='city' type='text' required)
+					.form-group.form-inline
+						label.control-label.com-label 小区名称
+						input#neighborhood(name='neighborhood' type='text' required)
+
+					.form-group.form-inline
+						label.control-label.com-label 我是
+						label.radio-inline
+							input#gender(type='radio', name='gender', value='m', checked='')
+							|   爸爸
+						label.radio-inline
+							input#gender(type='radio', name='gender', value='f')
+							|   妈妈
+					
+					.form-group.form-inline
+						label.control-label.com-label 宝宝性别
+						label.radio-inline
+							input#babyGender(type='radio', name='babyGender', value='m', checked='')
+							|   男
+						label.radio-inline
+							input#babyGender(type='radio', name='babyGender', value='f')
+							|   女
+
+					.form-group.form-inline
+						label.control-label.com-label 宝宝生日
+						input#babyBirthday(name='babyBirthday' type='Date', value='2015-01-01', required)
+					.form-group.form-inline
+						label.control-label.com-label 全职在家看孩子
+						label.radio-inline
+							input#isFullTime(type='radio', name='isFullTime', value='1', checked='')
+							|   是
+						label.radio-inline
+							input#isFullTime(type='radio', name='isFullTime', value='0')
+							|   否
+					.form-group
+						label.control-label.com-label 育儿理念
+						textarea#idea(name='idea' type='text', required, placeholder='我倡导快乐养育，让孩子在快乐的环境里成长')
+					.form-group
+						label.control-label.com-label 自我介绍
+						textarea#selfIntroduction(name='selfIntroduction' type='text', required)
+					.form-group.text-center
+						input.btn.btn-yuanzi(id='send' type='submit' value='提交') 
 block scripts
-	script(src='/js/validator.min.js')
 	script.
-		$(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
+		$(function () {
+			
+			$('form :input').blur(function () {
+				var $parent = $(this).parent();
+				$parent.find(".message").remove();
+				
+				if ($(this).is('#mobile')) {
+					if (!/^1[0-9]{10}$/.test(this.value.trim())) {
+						var errorMsg = '请输入11位手机号.';
+						$parent.append('<span style="color: red;" class="message has-error">' + errorMsg + '</span>');
+					}
+				}
+				
+			}).keyup(function () {
+				$(this).triggerHandler("blur");
+			}).focus(function () {
+				$(this).triggerHandler("blur");
+			});
+			
+			$('#send').click(function () {
+				$("form :input.required").trigger('blur');
+				var numError = $('form .has-error').length;
+				if (numError) {
+					return false;
+				}
+			});
+			
+		})
+		
+			

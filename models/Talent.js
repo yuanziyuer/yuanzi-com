@@ -28,10 +28,16 @@ Talent.add({
 	},
 	cover: {
 		type: Types.CloudinaryImage,
-		publicID: 'Daren',
-		folder: 'Darens',
+		publicID: 'talents',
+		folder: 'talents',
 		label: '图片',
 		
+	},
+	cover2x: {
+		type: Types.CloudinaryImage,
+		publicID: 'talents',
+		folder: 'talents',
+		label: 'retina高清2倍图',
 	},
 	isPublished: {
 		type: Boolean, default: false, label: '是否发布'

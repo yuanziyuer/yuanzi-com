@@ -4,7 +4,8 @@
   * @param {Number} $lineCount - count to display
   */
 html, body {
-  height: 100%; }
+  height: 100%;
+  min-width: 300px; }
 
 body {
   background-color: #f3f3f3;
@@ -13,7 +14,7 @@ body {
 .com-base-padding {
   padding-left: 13.8vw;
   padding-right: 13.8vw; }
-  @media (min-width: 1281px) {
+  @media (min-width: 1401px) {
     .com-base-padding {
       padding: 0; } }
 
@@ -25,8 +26,36 @@ body {
   height: 100%;
   margin: 0 auto -8em; }
 
+@media (max-width: 768px) {
+  .carousel-indicators {
+    bottom: -10px; } }
+
 .carousel-indicators li {
-  border: 1px solid #000000; }
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 9pt;
+  height: 9pt;
+  background-color: #575756;
+  border: 0; }
+
+.carousel-indicators .active {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 9pt;
+  height: 9pt;
+  background-color: #7ccce7; }
+
+a {
+  color: #7ccce7;
+  text-decoration: none; }
+
+.btn-yuanzi {
+  color: #fff;
+  background-color: #7ccce7;
+  border-color: #7ccce7; }
+
+.form-horizontal .control-label {
+  text-align: left; }
 
 .com-header {
   width: 100%; }
@@ -58,50 +87,53 @@ body {
   @media (min-width: 1024px) {
     .com-cards {
       height: 100%; } }
-  @media (min-width: 1281px) {
+  @media (min-width: 1401px) {
     .com-cards {
       padding: 0; } }
   .com-cards .com-hottext {
-    margin-top: 2em; }
-  .com-cards .cards {
-    padding-top: 4em; }
-    .com-cards .cards .thumbnail {
-      max-width: 310px; }
-      .com-cards .cards .thumbnail .caption {
-        margin-bottom: auto; }
-        .com-cards .cards .thumbnail .caption .com-card-title {
-          color: #454545;
-          line-height: 1.14em;
-          font-size: 1.14em;
-          height: 2.28em; }
-          @media all {
-            .com-cards .cards .thumbnail .caption .com-card-title {
-              white-space: normal;
-              -webkit-line-clamp: 2;
-              display: -webkit-box;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              -webkit-box-orient: vertical; } }
-        .com-cards .cards .thumbnail .caption .card-description {
-          color: #828282;
-          line-height: 2em;
-          height: 8em; }
-          @media all {
-            .com-cards .cards .thumbnail .caption .card-description {
-              white-space: normal;
-              -webkit-line-clamp: 4;
-              display: -webkit-box;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              -webkit-box-orient: vertical; } }
-        .com-cards .cards .thumbnail .caption .com-user-avatar {
-          width: 2em; }
-        .com-cards .cards .thumbnail .caption .com-user-nickname {
-          padding-left: 10px; }
+    margin-top: 4em;
+    margin-bottom: 2em; }
+  .com-cards .cards .thumbnail {
+    max-width: 310px; }
+    .com-cards .cards .thumbnail .caption {
+      margin-bottom: auto; }
+      .com-cards .cards .thumbnail .caption .com-card-title {
+        color: #454545;
+        line-height: 1.14em;
+        font-size: 1.14em;
+        height: 2.28em; }
+        @media all {
+          .com-cards .cards .thumbnail .caption .com-card-title {
+            white-space: normal;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical; } }
+      .com-cards .cards .thumbnail .caption .card-description {
+        color: #828282;
+        line-height: 2em;
+        height: 8em; }
+        @media all {
+          .com-cards .cards .thumbnail .caption .card-description {
+            white-space: normal;
+            -webkit-line-clamp: 4;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical; } }
+      .com-cards .cards .thumbnail .caption .com-user-avatar {
+        width: 2em; }
+      .com-cards .cards .thumbnail .caption .com-user-nickname {
+        padding-left: 10px; }
   .com-cards .com-card-more {
     margin-bottom: 4em; }
 
+.com-pages-cards {
+  margin-top: 4em; }
+
 .com-user {
+  margin-top: 4em;
   margin-bottom: 2em; }
   .com-user .com-user-cover {
     background-color: #f3f3f3;
@@ -117,30 +149,31 @@ body {
 
 .com-news {
   padding-left: 13.8vw;
-  padding-right: 13.8vw; }
-  @media (min-width: 1281px) {
+  padding-right: 13.8vw;
+  margin-top: 50px; }
+  @media (min-width: 1401px) {
     .com-news {
       padding: 0; } }
   .com-news .com-newstext {
     margin-top: 2em;
     margin-bottom: 1.5em; }
-  .com-news .news .thumbnail {
-    max-width: 310px; }
-    .com-news .news .thumbnail .caption {
-      margin-bottom: auto; }
-      .com-news .news .thumbnail .caption .com-news-title {
-        color: #828282;
-        line-height: 1.14em;
-        font-size: 1.14em;
-        height: 2.28em; }
-        @media all {
-          .com-news .news .thumbnail .caption .com-news-title {
-            white-space: normal;
-            -webkit-line-clamp: 2;
-            display: -webkit-box;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-box-orient: vertical; } }
+  .com-news .news .thumbnail img {
+    width: 100%; }
+  .com-news .news .thumbnail .caption {
+    margin-bottom: auto; }
+    .com-news .news .thumbnail .caption .com-news-title {
+      color: #828282;
+      line-height: 1.14em;
+      font-size: 1.14em;
+      height: 2.28em; }
+      @media all {
+        .com-news .news .thumbnail .caption .com-news-title {
+          white-space: normal;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-box-orient: vertical; } }
   .com-news .row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -163,22 +196,38 @@ body {
 
 .com-pages-downloads {
   width: 100%; }
-  @media (orientation: landscape) {
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .com-pages-downloads {
+    z-index: 10; }
+    .com-pages-downloads .com-downloads-img {
+      display: none; }
+    .com-pages-downloads .com-downloads-content {
+      float: none;
+      padding-right: 10%;
+      padding-left: 10%; } }
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .com-pages-downloads {
+    position: relative; }
+    .com-pages-downloads .com-downloads-content {
+      float: right;
+      position: absolute;
+      z-index: 10; } }
+  @media (min-width: 768px) {
     .com-pages-downloads {
       position: relative; }
       .com-pages-downloads .com-downloads-content {
         float: right;
         position: absolute;
-        z-index: 10; }
-      .com-pages-downloads .com-apply-content {
-        float: right;
-        position: absolute;
         z-index: 10; } }
   .com-pages-downloads .com-downloads-img {
     float: left;
-    width: 100%; }
+    width: 100%;
+    height: 76vh; }
     .com-pages-downloads .com-downloads-img img {
       object-fit: cover;
+      object-position: 0 0;
       width: 100%;
       height: 76vh; }
   .com-pages-downloads .com-downloads-content {
@@ -195,25 +244,49 @@ body {
       height: 128px;
       background: url("/images/qrcode-new.png") no-repeat;
       background-size: cover; }
-  .com-pages-downloads .com-apply-content {
+
+.com-pages-apply {
+  width: 100%; }
+  @media (max-width: 767px) {
+    .com-pages-apply {
+      z-index: 10; }
+      .com-pages-apply .com-apply-img {
+        display: none; }
+      .com-pages-apply .com-apply-content {
+        float: none; } }
+  @media (min-width: 768px) {
+    .com-pages-apply {
+      position: relative; }
+      .com-pages-apply .com-apply-content {
+        height: 50vh;
+        overflow: auto;
+        float: right;
+        position: absolute;
+        z-index: 10;
+        margin-top: 4em;
+        margin-bottom: 4em; } }
+  .com-pages-apply .com-apply-img {
+    float: left;
+    width: 100%;
+    height: 76vh; }
+    .com-pages-apply .com-apply-img img {
+      object-fit: cover;
+      object-position: 0 0;
+      width: 100%;
+      height: 76vh; }
+  .com-pages-apply .com-apply-content {
     background-color: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     max-width: 400px;
-    height: 50vh;
-    margin-top: 10px;
     padding-top: 10px;
-    overflow: auto;
     right: 10%;
     font-size: 10px; }
-    .com-pages-downloads .com-apply-content .com-downloads-btn {
-      float: left;
-      padding-top: 10%; }
-    .com-pages-downloads .com-apply-content .com-qr-code {
-      float: right;
-      display: block;
-      width: 128px;
-      height: 128px;
-      background: url("/images/qrcode.png") no-repeat; }
+    .com-pages-apply .com-apply-content form {
+      padding-left: 4em;
+      padding-left: 4em;
+      margin: 15px;
+      min-width: 300px; }
+    .com-pages-apply .com-apply-content .com-label {
+      width: 10em; }
 
 .com-pages-card .com-pages-conten {
   padding-top: 4em;
@@ -241,6 +314,23 @@ body {
 .com-pages-card .com-news-hr {
   margin-top: 10px;
   margin-bottom: 10px; }
+
+.com-about-img {
+  position: relative; }
+  @media (max-width: 768px) {
+    .com-about-img {
+      display: none; } }
+  .com-about-img .com-about-img-left {
+    position: absolute;
+    width: 13.8vw;
+    z-index: 10000;
+    top: 10vh; }
+  .com-about-img .com-about-img-right {
+    position: absolute;
+    width: 13.8vw;
+    z-index: 10000;
+    top: 20vh;
+    right: 0; }
 
 .com-about {
   padding-left: 13.8vw;
@@ -273,20 +363,3 @@ body {
           font-size: 2em;
           color: red;
           padding-right: 5px; }
-
-.com-downloads-img {
-  position: relative; }
-  @media (max-width: 768px) {
-    .com-downloads-img {
-      display: none; } }
-  .com-downloads-img .com-downloads-img-left {
-    position: absolute;
-    width: 13.8vw;
-    z-index: 10000;
-    top: 10vh; }
-  .com-downloads-img .com-downloads-img-right {
-    position: absolute;
-    width: 13.8vw;
-    z-index: 10000;
-    top: 20vh;
-    right: 0; }

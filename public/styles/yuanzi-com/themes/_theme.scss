@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-
+  min-width: 300px;
 }
 body {
   background-color: $com-base-color;
@@ -26,10 +26,37 @@ body {
 }
 
 .carousel-indicators {
-  li {
+  @include media('<=tablet'){
+	bottom: -10px;
 	
-	border: 1px solid #000000;
+  }
+  li {
+
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 9pt;
+	height: 9pt;
+	background-color: #575756;
+	border: 0;
+  }
+  .active {
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 9pt;
+	height: 9pt;
+	background-color: $com-yuanzi-color;
   }
 }
- 
-
+a {
+  
+  color: $com-yuanzi-color;
+  text-decoration: none;
+}
+.btn-yuanzi {
+  color: #fff;
+  background-color: $com-yuanzi-color;
+  border-color: $com-yuanzi-color;
+}
+.form-horizontal .control-label {
+  text-align: left;
+}

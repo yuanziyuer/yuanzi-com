@@ -2,29 +2,29 @@ extends ../layout/layout
 block content
 	section.container.com-pages-card.com-base-padding
 		.row.cards.com-pages-conten
-			.col-md-8(role='main')
+			.col-md-9(role='main')
 				.com-card-content
 					h3.com-card-title #{data.card.name}
 					.com-card-user
-						img.com-user-avatar.img-circle(src='/images/placeholder.jpg', width='5%', data-echo='#{data.card.owner.avatar.url}', alt='元子育儿')
+						img.com-user-avatar.img-circle(src='/images/placeholder.jpg', width='5%', data-echo='#{data.card.owner.avatar.url}', alt='元子育儿', data-no-retina)
 						span.com-user-nickname #{data.card.owner.nickname}
 					hr
 					#com-card-html
 						!= data.card.content
 						
-			.col-md-4.com-cards(style='height:100%;')
+			.col-md-3.com-cards(style='height:100%;')
 				.cards.row
 					.col-sm-12.col-md-12.col-lg-12
 						p 热门内容
 						each card in data.otherCards
 							.thumbnail
 								a(href='/cards/#{card.cardId}', title='#{card.name}', target='_blank', onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])")
-									img(src='/images/placeholder.jpg', width='300', data-echo='#{card.cover.url}', alt='元子育儿')
+									img(src='/images/placeholder.jpg', width='300', data-echo='#{card.cover.url}', alt='元子育儿', data-no-retina)
 								.caption
 									p.com-card-title.text-center #{card.name}
 									p.card-description
 										| #{card.description}
-									img.com-user-avatar.img-circle(src='/images/placeholder.jpg', width='300', data-echo='#{card.owner.avatar.url}', alt='元子育儿')
+									img.com-user-avatar.img-circle(src='/images/placeholder.jpg', width='300', data-echo='#{card.owner.avatar.url}', alt='元子育儿', data-no-retina)
 									span.com-user-nickname #{card.owner.nickname}
 
 	
