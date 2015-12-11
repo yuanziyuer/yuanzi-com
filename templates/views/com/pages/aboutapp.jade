@@ -13,9 +13,37 @@ html(lang='en')
 		script(src='/js/html5shiv.min.js')
 		script(src='/js/respond.min.js')
 	body
-		section.com-content-container
-			block content
-				include ../pages/aboutContent.jade
+		section.com-content-container(style='padding-top: 0;')
+			section.com-about-img
+				img.com-about-img-left.pull-left(src='/images/downloads-left.png', width='300', data-no-retina)
+				img.com-about-img-right.pull-right(src='/images/downloads-right.png', width='300', data-no-retina)
+			section.com-about
+
+				.com-about-content
+					p
+						| 亲爱的用户：
+					p
+						| 感谢您下载和使用元子育儿APP。
+					p
+						| 元子育儿APP是北京千鱼教育科技服务有限公司旗下产品。公司成立于2014年，以清晰精准的产品定位、颇具前瞻性和商业潜力的独到模式获得投资方认可，产品未上线就获得了近千万天使轮融资。2015年6月，上线不足一年的元子育儿APP已拥有百万用户，并再获数百万美元A轮融资。
+					p
+						| 父母们对于1~6岁宝宝的关注重点，已经从“养”变化到“育”，这对父母的要求越来越高，需要父母不断学习，跟随孩子的成长而成长。父母们除了不断更新育儿理念、掌握实用的育儿方法，也要将它们融入日常生活，成为家庭亲子生活方式的一部分。
+					p
+						| 元子育儿正是为1~6岁宝宝家庭打造的父母成长型社区，重视儿童心理发育，倡导无药育儿、自然体验和艺术体验等。无论是社区内专家的知识分享，达人父母的实用经验和资讯，还是丰富多彩的线上线下活动，都致力于帮助父母全方面构筑最适合自己和宝贝的亲子生活方式。今后，我们还将不断推出承载这些理念的产品和服务。
+					p
+						| 元子，以“元”为始，还原生命之本真，我们希望孩子回归生命最初天真天然的状态。
+					p
+						| 官方微信：元子育儿、千鱼元子 
+						br
+						| 官方微博：元子育儿
+						br
+						span(style='line-height:1.5;')
+							| 官网：
+							a(href='http://www.iyuanzi.com', target='_blank') www.iyuanzi.com
+						br
+					p
+						| 合作请发送邮件到：marketing@iyuanzi.com
+
 		include ../footer/footer
 		// jQuery
 		script(src='/js/jquery/jquery-2.1.3.js')
