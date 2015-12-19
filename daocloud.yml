@@ -1,4 +1,4 @@
-image: daocloud/ci-node:0.8
+image: daocloud/node:0.12.7
 
 services:
     - mongodb
