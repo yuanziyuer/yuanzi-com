@@ -1,0 +1,12 @@
+image: daocloud/ci-node:0.8
+
+services:
+    - mongodb
+    - redis
+env:
+    - MONGODB_INSTANCE_NAME = "test"
+    - NODE_ENV = "development"
+
+script:
+    - npm install
+    - node app.js
